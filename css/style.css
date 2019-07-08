@@ -1,0 +1,684 @@
+.root {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card {
+    position: relative;
+    margin: 0 10px;
+    padding: 20px;
+    width: 200px;
+    font-size: 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    overflow: hidden;
+    border: 1px solid rgb(197, 197, 197);
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+}
+
+.card-wrap {
+    overflow: hidden;
+}
+
+.animalInfo {
+    height: 0;
+    top: 200px;
+}
+
+.card:hover .animalInfo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    width: 100%;
+    font-size: 13px;
+    height: 97%;
+    transition: top .8s;
+    opacity: .9;
+    text-align: center;
+}
+
+.cartInCard {
+    display: block;
+    position: absolute;
+    top: 90%;
+    left: 45%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.btn-addCart {
+    position: relative;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+    font-size: 0;
+}
+
+.btn-addCart:active {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25), 0 1px 1px rgba(0, 0, 0, 0.22);
+}
+
+.order-control-in-cart {
+    display: inline;
+}
+
+.btn-addCart::after {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 17px;
+    height: 17px;
+    background-image: url(../assets/img/generic/cart.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+.showPopup {
+    line-height: 200px;
+    display: block;
+    position: absolute;
+    color: red;
+    top: -30%;
+    left: -75%;
+    z-index: 5;
+    transform: rotate(-55deg);
+    background-color: #ffffff;
+    width: 200%;
+    padding: 100px;
+}
+
+
+
+.wrapp {
+    display: flex;
+    width: 1200px;
+    margin-bottom: 220px;
+}
+
+img {
+    max-width: 200px;
+}
+
+.language {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 50px;
+
+}
+
+.language>button {
+    background-color: #fab209;
+    border: 1px solid #df7700;
+    outline: none;
+    color: #975203;
+}
+
+.language>button:first-of-type {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.language>button:last-of-type {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.language>button:hover {
+    background-color: #df7700;
+}
+
+.CartCart {
+    display: none;
+    position: fixed;
+    background-color: #ffffff;
+    top: 20%;
+    left: 35%;
+    width: 520px;
+    max-height: 550px;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.purches-img {
+    max-width: 100px;
+    padding: 0 20px 10px;
+}
+
+.purches-name {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.purches-price {
+    margin: 20px 0;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.purches-price-item {
+    min-width: 100px;
+    flex: 0 0 100px;
+}
+
+.showCart {
+    display: block;
+    z-index: 20;
+}
+
+.cart-item {
+    display: flex;
+    margin: 10px 0;
+    border-bottom: 1px solid rgb(219, 219, 219);
+}
+
+.modalPurchase {
+    position: fixed;
+    z-index: 21;
+    top: 20%;
+    left: 35%;
+    width: 500px;
+    min-height: 530px;
+    padding: 30px;
+    background-color: rgb(255, 153, 0);
+
+}
+
+.modalPurchaseBack {
+    display: none;
+}
+
+.modalPurchaseBack-show {
+    position: fixed;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    opacity: 0.8;
+    z-index: 15;
+}
+
+.modalPurchase__form-name,
+.modalPurchase__form-surname,
+.modalPurchase__form-email,
+.modalPurchase__form-tel {
+    margin: 10px 0 40px;
+    padding: 10px;
+}
+
+.confirm-order {
+    width: 170px;
+    align-self: center;
+    padding: 10px 20px;
+    border-radius: 3px;
+    border: 1px solid #008cff;
+    background-color: #ffffff;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.confirm-order:hover {
+    background-color: #008cff;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+
+.history__form-abort,
+.cart__form-abort,
+.modalPurchase__form-abort {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.history__form-abort:hover,
+.cart__form-abort:hover,
+.modalPurchase__form-abort:hover {
+    font-weight: 600;
+    color: red;
+    cursor: pointer;
+}
+
+.modalPurchase__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.categories-items-all:hover,
+.categories-items-input-all:checked+.categories-items-all {
+    background-color: rgba(248, 170, 170, 0.5);
+    color: black;
+}
+
+.categories-items-cats:hover,
+.categories-items-input-cats:checked+.categories-items-cats {
+    background-color: #b7f8aa80;
+    color: black;
+}
+
+.categories-items-dogs:hover,
+.categories-items-input-dogs:checked+.categories-items-dogs {
+    background-color: #f659fc80;
+    color: black;
+}
+
+.categories-items-fishes:hover,
+.categories-items-input-fishes:checked+.categories-items-fishes {
+    background-color: #bd6efd80;
+    color: black;
+}
+
+.categories-items-birds:hover,
+.categories-items-input-birds:checked+.categories-items-birds {
+    background-color: #7a86f880;
+    color: black;
+}
+
+.header {
+    flex-grow: 0;
+    background-color: #fab209;
+    position: relative;
+    justify-content: flex-start;
+}
+
+.header__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.container-for-cartLang {
+    display: flex;
+    align-items: center;
+}
+
+.main {
+   flex-grow: 1;
+
+}
+
+.main__wrapper {
+    margin: 0 auto;
+}
+
+.main__start-page {
+    background-image: url(../assets/img/generic/startPage.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.footer {
+    flex-grow: 0;
+    background-color: #000000;
+    justify-self: flex-end;
+    padding-top: 100px;
+    padding-bottom: 40px;
+}
+
+.footer__wrapper {
+    width: 60%;
+    margin: 0 auto;
+    color: #777676;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    border-bottom: 1px solid #777676;
+
+}
+
+.footer__item {
+    margin: 0 50px;
+}
+
+.page-choice {
+    display: flex;
+    justify-content: center;
+}
+
+.footer__item {
+    position: relative;
+}
+
+.footer__item--tel::after,
+.footer__item--adress::after,
+.footer__item--email::after {
+    content: '';
+    position: absolute;
+    display: block;
+    top: -50px;
+    left: 20%;
+    width: 45px;
+    height: 45px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.footer__item--tel::after {
+    background-image: url(../assets/img/generic/tel.png);
+}
+
+.footer__item--adress::after {
+    background-image: url(../assets/img/generic/adress.png);
+}
+
+.footer__item--email::after {
+    background-image: url(../assets/img/generic/email.png);
+}
+
+.main__start-page-block {
+    display: flex;
+    color: white;
+    justify-content: center;
+}
+
+.main__start-page-block--categories {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__start-page-block-links {
+    display: flex;
+    text-align: center;
+}
+
+.main__start-page-block--bird {
+    background-color: #000000;
+}
+
+.main__start-page-block--dog {
+    background-color: #fab209;
+}
+
+.cartttt {
+
+    width: 100px;
+    position: relative;
+    cursor: pointer;
+}
+
+.cartttt::after {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 50px;
+    height: 40px;
+    top: -12px;
+    left: -45px;
+    background-image: url(../assets/img/generic/cart.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.cartttt:hover::after {
+    background-image: url(../assets/img/generic/cart_blue.png);
+}
+
+.totalPrice {
+    display: flex;
+    justify-content: space-between;
+    line-height: 28px;
+}
+
+.trashingGoods {
+    border: none;
+    background-color: #ffffff;
+    color: transparent;
+    position: relative;
+    outline: none;
+}
+
+.trashingGoods::after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 40%;
+    width: 20px;
+    height: 20px;
+    background-image: url(../assets/img/generic/trash.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.trashingGoods:hover::after {
+    background-image: url(../assets/img/generic/trash_blue.png)
+}
+
+.cartttt>span:hover {
+    color: #008cff;
+}
+
+.main__slider {
+    display: flex;
+    flex-direction: column;
+    min-height: 685px;
+}
+
+.main__filter {
+    min-height: 100px;
+}
+
+.page-choice-aside {
+    width: 200px;
+    margin-right: 100px;
+}
+
+.categories {
+    margin-top: 100px;
+    font-size: 30px;
+    line-height: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+.categories__filters {
+    display: flex;
+    padding: 20px;
+    line-height: 20px;
+    width: 1250px;
+}
+
+.categories-items-input {
+    display: none;
+}
+
+.extraFeature {
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.filters-checkbox {
+    display: flex;
+    margin-left: 20px;
+}
+
+.checkboxItem {
+    margin: 5px 10px 0 3px;
+    line-height: 20px;
+
+}
+
+.main__start-page-block-header {
+    font-size: 30px;
+}
+
+.main__start-page-block-text {
+    width: 40%;
+    padding: 10px;
+}
+
+.main__start-page-block-dogs,
+.main__start-page-block-cats,
+.main__start-page-block-birds,
+.main__start-page-block-fishes,
+.main__start-page-block-header--popular {
+    color: black;
+}
+
+.main__start-page-block-img-item {
+    max-width: 250px;
+    padding-top: 20px;
+}
+
+.btn-slider {
+    border: none;
+    background: none;
+    font-size: 0;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    margin-right: 35px;
+}
+
+.btn-slider--next::after,
+.btn-slider--prev::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.btn-slider--next::after {
+    background-image: url(../assets/img/generic/next.png);
+}
+
+.btn-slider--prev::after {
+    background-image: url(../assets/img/generic/prev.png);
+}
+
+.main__history-modal {
+    display: none;
+    position: fixed;
+    background-color: #fab209;
+    top: 20%;
+    left: 35%;
+    width: 520px;
+    min-height: 550px;
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 21;
+}
+
+.main__history-modal--show {
+    display: block;
+}
+
+.main__history-modal-item {
+    border-bottom: 1px solid #df7700;
+    margin-bottom: 10px;
+}
+
+.btn-remove-from-cart,
+.btn-add-from-cart,
+.purchase,
+.btn-history {
+    border-radius: 3px;
+    border: 1px solid #008cff;
+    padding: 5px 10px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.btn-remove-from-cart {
+    padding: 5px 12px;
+}
+
+.btn-remove-from-cart:hover,
+.btn-add-from-cart:hover,
+.purchase:hover,
+.btn-history:hover {
+    background-color: #008cff;
+    color: #ffffff;
+}
+
+.cart__empty {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.history__empty-text,
+.cart__empty-text {
+    font-size: 30px;
+    padding-left: 20px;
+    opacity: 0.5;
+    line-height: 10px;
+}
+
+.history__empty-text {
+    line-height: 400px;
+    font-size: 40px;
+    margin-top: 50px;
+}
+
+.main__history-modal-item-header,
+.main__history-modal-item {
+    display: flex;
+    margin-top: 10px;
+    padding: 10px;
+    align-items: baseline;
+    min-width: 100px;
+
+}
+
+.main__history-modal-item-header {
+    font-weight: 700;
+}
+
+.main__history-modal-item-text {
+    min-width: 100px;
+    word-break: break-all;
+    margin: 0 10px;
+    flex: 0 0 100px;
+}
+
+.history__order {
+    width: 120px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.main__start-page-block-enterBtn {
+    border: none;
+    background-color: transparent;
+    color: transparent;
+    position: relative;
+    outline: none;
+}
+
+.main__start-page-block-enterBtn::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -70%;
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(../assets/img/generic/enter.png);
+
+}
