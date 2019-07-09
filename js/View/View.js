@@ -29,7 +29,7 @@ export default class View {
       document.querySelector('.main__start-page') ?
         document.querySelector('.main__start-page').classList.remove('main__start-page') : 0;
 
-      document.querySelector('.cartttt').classList.remove('hidden');
+      document.querySelector('.cartIcon').classList.remove('hidden');
       document.querySelector('.language').classList.remove('hidden');
     }
   }
@@ -452,7 +452,7 @@ export default class View {
     </a>
     <div class="container-for-cartLang">
     
-    <div class="cartttt hidden">
+    <div class="cartIcon hidden">
     <span><i class="goodsIntoCart"></i> item(s)</span>
     </div>
     <div class="language hidden">
@@ -477,7 +477,7 @@ export default class View {
 
     document.querySelector('.goodsIntoCart').innerText = storage.cartOrderAmount.length;
 
-    document.querySelector('.cartttt').addEventListener('click', this.control.toggleCart.bind(this.control));
+    document.querySelector('.cartIcon').addEventListener('click', this.control.toggleCart.bind(this.control));
 
     document.querySelector('.header')
       .addEventListener('click', this.control.handlerEnter.bind(this.control));

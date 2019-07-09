@@ -407,14 +407,14 @@ img {
     background-color: #fab209;
 }
 
-.cartttt {
+.cartIcon {
 
     width: 100px;
     position: relative;
     cursor: pointer;
 }
 
-.cartttt::after {
+.cartIcon::after {
     position: absolute;
     content: '';
     display: block;
@@ -427,7 +427,7 @@ img {
     background-repeat: no-repeat;
 }
 
-.cartttt:hover::after {
+.cartIcon:hover::after {
     background-image: url(../assets/img/generic/cart_blue.png);
 }
 
@@ -462,7 +462,7 @@ img {
     background-image: url(../assets/img/generic/trash_blue.png)
 }
 
-.cartttt>span:hover {
+.cartIcon>span:hover {
     color: #008cff;
 }
 
